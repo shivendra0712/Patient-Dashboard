@@ -1,13 +1,11 @@
 import axios from 'axios';
 
 // Vite exposes environment variables on the import.meta.env object
-const API_URL = import.meta.env.Backend_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.Backend_URL ;
 
 const api = axios.create({
   baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  withCredentials: true,
 });
 
 // Add a request interceptor to add the auth token to every request
