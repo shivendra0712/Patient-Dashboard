@@ -34,7 +34,7 @@ const ShipmentDetail = ({ shipment, onEdit, onDelete, onClose }) => {
     if (trackingNumber.startsWith('1Z')) {
       return {
         name: 'UPS',
-        logo: 'https://www.ups.com/assets/resources/images/UPS_logo.svg',
+        logo: 'ttps://www.fedex.com/content/dam/fedex-com/logos/logo.png',
         trackingUrl: `https://www.ups.com/track?tracknum=${trackingNumber}`
       };
     } else if (trackingNumber.length === 12 || trackingNumber.length === 15) {
