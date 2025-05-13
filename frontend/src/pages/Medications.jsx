@@ -188,14 +188,14 @@ function Medications() {
                   onClose={() => setSelectedMedication(null)}
                 />
               ) : (
-                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center h-full">
+                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center h-full ">
                   <div className="text-center">
                    
                     <h3 className="text-lg font-medium text-gray-900 mb-2">No Medication Selected</h3>
                     <p className="text-gray-500 mb-6">Select a medication from the list to view details or add a new one.</p>
                     <button
                       onClick={handleAddMedication}
-                      className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      className="inline-flex items-center px-4 py-2 border  border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />

@@ -258,7 +258,7 @@ function Dashboard() {
     : 'No medications scheduled';
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+    <div className="bg-gradient-to-b from-gray-100 to-gray-100 min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -279,10 +279,10 @@ function Dashboard() {
         {/* Main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left column - 2/3 width */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-6 ">
             {/* Weight Patterns Overview */}
             <div className="bg-white rounded-xl shadow-sm p-6">
-              <div className="flex justify-between items-center mb-4">
+              <div className="flex justify-between items-center mb-4 ">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Weight Patterns Overview</h3>
                   <p className="text-sm text-gray-500">
@@ -383,9 +383,9 @@ function Dashboard() {
                   </div>
 
                   {/* Weight Chart */}
-                  <div className="mt-6 h-64 relative">
+                  {/* <div className="mt-6 h-64 relative bg-amber-200 ">
                     <canvas ref={chartRef} className="w-full h-full"></canvas>
-                  </div>
+                  </div> */}
                 </>
               )}
             </div>
@@ -592,7 +592,7 @@ function Dashboard() {
                 </div>
               ) : (
                 <div className="space-y-4 mb-6">
-                  {medications.slice(0, 3).map((medication) => (
+                  {medications.slice(0, 2).map((medication) => (
                     <div key={medication._id} className="p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                       <div className="flex items-start">
                         <div className={`mr-3 w-10 h-10 ${medication.taken ? 'bg-green-100' : 'bg-blue-100'} rounded-full flex items-center justify-center ${medication.taken ? 'text-green-600' : 'text-blue-600'} mt-1`}>
@@ -625,9 +625,9 @@ function Dashboard() {
                               </div>
                             </div>
                             <Link to={`/medications/${medication._id}`} className="text-blue-600 hover:text-blue-800">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                              </svg>
+                              </svg> */}
                             </Link>
                           </div>
                         </div>
@@ -635,7 +635,7 @@ function Dashboard() {
                     </div>
                   ))}
 
-                  {medications.length > 3 && (
+                  {medications.length > 2 && (
                     <div className="text-center mt-4">
                       <Link to="/medications" className="text-blue-600 hover:text-blue-800 text-sm font-medium">
                         View all {medications.length} medications

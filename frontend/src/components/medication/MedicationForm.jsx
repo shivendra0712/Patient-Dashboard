@@ -129,8 +129,8 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="name"
               value={formData.name}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm ${
-                errors.name ? 'border-red-300' : ''
+              className={`mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm ${
+                errors.name ? '' : ''
               }`}
             />
             {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
@@ -148,7 +148,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.dosage}
               onChange={handleChange}
               placeholder="e.g., 10mg, 1 tablet"
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm ${
+              className={`mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm sm:text-sm ${
                 errors.dosage ? 'border-red-300' : ''
               }`}
             />
@@ -165,7 +165,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="frequency"
               value={formData.frequency}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm ${
+              className={`mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-smsm:text-sm ${
                 errors.frequency ? 'border-red-300' : ''
               }`}
             >
@@ -194,7 +194,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.timeOfDay}
               onChange={handleChange}
               placeholder="e.g., Morning, Evening, With meals"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm sm:text-sm"
             />
           </div>
 
@@ -210,7 +210,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.purpose}
               onChange={handleChange}
               placeholder="e.g., Blood Pressure, Pain Relief"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -226,7 +226,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.prescribedBy}
               onChange={handleChange}
               placeholder="Doctor's name"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -241,7 +241,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="startDate"
               value={formData.startDate}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm ${
+              className={`mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm ${
                 errors.startDate ? 'border-red-300' : ''
               }`}
             />
@@ -259,7 +259,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="endDate"
               value={formData.endDate}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
             <p className="mt-1 text-xs text-gray-500">Leave blank if ongoing</p>
           </div>
@@ -274,7 +274,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="status"
               value={formData.status}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             >
               <option value="active">Active</option>
               <option value="paused">Paused</option>
@@ -294,7 +294,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.instructions}
               onChange={handleChange}
               placeholder="e.g., Take with food, Take on empty stomach"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -310,7 +310,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.sideEffects}
               onChange={handleChange}
               placeholder="List potential side effects"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -331,7 +331,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.refills}
               onChange={handleChange}
               placeholder="Number of refills or 'OTC'"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -346,7 +346,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="nextRefillDate"
               value={formData.nextRefillDate}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -366,7 +366,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="pharmacy.name"
               value={formData.pharmacy.name}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -381,7 +381,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="pharmacy.phone"
               value={formData.pharmacy.phone}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -396,7 +396,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               id="pharmacy.address"
               value={formData.pharmacy.address}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -417,7 +417,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.image}
               onChange={handleChange}
               placeholder="https://example.com/image.jpg"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-sm  sm:text-sm"
             />
           </div>
 
@@ -433,7 +433,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
               value={formData.notes}
               onChange={handleChange}
               placeholder="Any additional notes about this medication"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-2 px-2 py-1 shadow-smsm:text-sm"
             />
           </div>
         </div>
@@ -443,7 +443,7 @@ const MedicationForm = ({ medication, onSubmit, onCancel }) => {
           <button
             type="button"
             onClick={onCancel}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex items-center px-4 py-2 border border-gray-500 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             Cancel
           </button>
