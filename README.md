@@ -196,6 +196,36 @@ If you encounter login or registration problems:
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## Deployment
+
+### Deploying the Frontend to Vercel
+
+1. Create an account on [Vercel](https://vercel.com/shivendra0712s-projects/patient-dashboard) if you don't have one
+2. Connect your GitHub repository to Vercel
+3. Configure the build settings:
+   - Build Command: npm run build
+   - Output Directory: dist
+4. Set up environment variables:
+   - Go to Project Settings > Environment Variables
+   - Add VITE_BACKEND_URL with your production backend URL (e.g., https://your-backend.onrender.com/api)
+5. Deploy the application
+
+### Deploying the Backend to Render
+
+1. Create an account on [Render](https://dashboard.render.com/web/srv-d0hoateuk2gs73c1e040) if you don't have one
+2. Create a new Web Service
+3. Connect your GitHub repository
+4. Configure the build settings:
+   - Root Directory: backend (if your backend is in a subdirectory)
+   - Build Command: npm install
+   - Start Command: npm start
+5. Set up environment variables:
+   - Add all the variables from your .env file
+   - Make sure to update FRONTEND_URL to your Vercel frontend URL
+   - Set up your MongoDB connection string
+6. Deploy the service
+
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
