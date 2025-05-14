@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Vite exposes environment variables on the import.meta.env object
-const API_URL = import.meta.env.Backend_URL || 'https://patient-dashboard-yr28.onrender.com/api';
+const API_URL = import.meta.env.Backend_URL;
 
 const api = axios.create({
   baseURL: API_URL,
