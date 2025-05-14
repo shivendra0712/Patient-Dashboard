@@ -40,7 +40,7 @@ Follow these steps to set up the project locally:
 
 ```bash
 # From the backend directory
-npm run dev
+nodemon server.js
 ```
 
 The backend server will start on http://localhost:5000.
@@ -60,37 +60,6 @@ Open your browser and navigate to:
 
 ```
 http://localhost:5173
-```
-
-## Database Setup
-
-The application will automatically create the necessary collections in MongoDB when you start using it. However, you can also manually set up the database:
-
-### Using MongoDB Compass
-
-1. Open MongoDB Compass
-2. Connect to your MongoDB instance
-3. Create a new database named `patient-dashboard`
-4. Create the following collections:
-   - `users`
-   - `weightrecords`
-   - `medications`
-   - `shipments`
-
-### Using MongoDB Shell
-
-```bash
-# Connect to MongoDB
-mongo
-
-# Create and use the database
-use patient-dashboard
-
-# Create collections
-db.createCollection("users")
-db.createCollection("weightrecords")
-db.createCollection("medications")
-db.createCollection("shipments")
 ```
 
 ## API Documentation
