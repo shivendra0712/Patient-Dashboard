@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { getWeightRecords, getWeightGoals } from '../services/weightService';
 import { getMedications } from '../services/medicationService';
-import { getShipments } from '../services/shipmentService';
 import Chart from 'chart.js/auto';
 import { motion } from 'framer-motion';
 
@@ -12,7 +11,6 @@ function Dashboard() {
   const [weightData, setWeightData] = useState([]);
   const [weightGoals, setWeightGoals] = useState({});
   const [medications, setMedications] = useState([]);
-  const [shipments, setShipments] = useState([]);
   const [stats, setStats] = useState({
     startingWeight: 0,
     currentWeight: 0,
@@ -644,163 +642,7 @@ function Dashboard() {
               )}
             </div>
 
-            {/* Shipment Tracking */}
-            <div className="bg-white rounded-xl shadow-sm p-6 mt-6">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Shipment Tracking</h3>
-                <Link to="/shipments" className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center">
-                  View All
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Shipment List */}
-              {shipments.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-8">
-                  <svg className="w-16 h-16 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                  </svg>
-                  <h3 className="text-lg font-medium text-gray-900 mb-2">No shipments found</h3>
-                  <p className="text-gray-500 text-center max-w-md mb-4">Track your medication shipments to know when they'll arrive.</p>
-                  <Link to="/shipments" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                    Add Shipment
-                  </Link>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {/* Upcoming Shipments */}
-                  {shipments.filter(s => s.status !== 'delivered').length > 0 && (
-                    <>
-                      <h4 className="text-sm font-medium text-gray-700 mb-3">Upcoming Shipments</h4>
-                      {shipments
-                        .filter(s => s.status !== 'delivered')
-                        .slice(0, 1)
-                        .map(shipment => (
-                          <div key={shipment._id} className="p-4 border border-blue-100 bg-blue-50 rounded-lg mb-4">
-                            <div className="flex items-start">
-                              <div className="mr-3 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                                </svg>
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex justify-between items-start">
-                                  <div>
-                                    <p className="font-medium text-gray-900">
-                                      {shipment.medication?.name || 'Medication'} Shipment
-                                    </p>
-                                    <p className="text-xs text-gray-600 mt-1">
-                                      Expected delivery: {shipment.expectedDeliveryDate ? new Date(shipment.expectedDeliveryDate).toLocaleDateString('en-US', {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric'
-                                      }) : 'Not specified'}
-                                    </p>
-                                    <div className="mt-3">
-                                      <div className="flex items-center mb-1">
-                                        <span className="text-xs font-medium text-gray-700">Shipment Status:</span>
-                                        <span className={`ml-2 px-2 py-0.5 ${
-                                          shipment.status === 'processing' ? 'bg-gray-100 text-gray-800' :
-                                          shipment.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
-                                          shipment.status === 'in-transit' ? 'bg-yellow-100 text-yellow-800' :
-                                          'bg-green-100 text-green-800'
-                                        } text-xs rounded-full`}>
-                                          {shipment.status === 'processing' ? 'Processing' :
-                                           shipment.status === 'shipped' ? 'Shipped' :
-                                           shipment.status === 'in-transit' ? 'In Transit' :
-                                           'Out for Delivery'}
-                                        </span>
-                                      </div>
-                                      <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
-                                        <div
-                                          className={`h-full ${
-                                            shipment.status === 'processing' ? 'bg-gray-500' :
-                                            shipment.status === 'shipped' ? 'bg-blue-500' :
-                                            shipment.status === 'in-transit' ? 'bg-yellow-500' :
-                                            'bg-green-500'
-                                          } rounded-full`}
-                                          style={{
-                                            width: shipment.status === 'processing' ? '25%' :
-                                                  shipment.status === 'shipped' ? '50%' :
-                                                  shipment.status === 'in-transit' ? '75%' : '90%'
-                                          }}
-                                        ></div>
-                                      </div>
-                                      <div className="flex justify-between text-xs text-gray-500 mt-1">
-                                        <span className={shipment.status === 'processing' ? 'font-medium text-gray-700' : ''}>Processed</span>
-                                        <span className={shipment.status === 'shipped' ? 'font-medium text-blue-700' : ''}>Shipped</span>
-                                        <span className={shipment.status === 'in-transit' ? 'font-medium text-yellow-700' : ''}>In Transit</span>
-                                        <span className={shipment.status === 'out-for-delivery' ? 'font-medium text-green-700' : ''}>Out for Delivery</span>
-                                      </div>
-                                    </div>
-                                    {shipment.trackingNumber && (
-                                      <div className="mt-3 flex items-center">
-                                        <span className="text-xs font-medium text-gray-700 mr-2">Tracking:</span>
-                                        <span className="text-xs text-blue-600">{shipment.trackingNumber}</span>
-                                        <Link to={`/shipments/${shipment._id}`} className="ml-2 text-xs text-blue-600 underline">Track</Link>
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                    </>
-                  )}
-
-                  {/* Recent Deliveries */}
-                  {shipments.filter(s => s.status === 'delivered').length > 0 && (
-                    <>
-                      <h4 className="text-sm font-medium text-gray-700 mb-3">Recent Deliveries</h4>
-                      <div className="space-y-3">
-                        {shipments
-                          .filter(s => s.status === 'delivered')
-                          .slice(0, 2)
-                          .map(shipment => (
-                            <div key={shipment._id} className="p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                              <div className="flex items-center">
-                                <div className="mr-3 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                  </svg>
-                                </div>
-                                <div className="flex-1">
-                                  <div className="flex justify-between">
-                                    <div>
-                                      <p className="text-sm font-medium text-gray-900">
-                                        {shipment.medication?.name || 'Medication'} Shipment
-                                      </p>
-                                      <p className="text-xs text-gray-500">
-                                        Delivered: {shipment.actualDeliveryDate ? new Date(shipment.actualDeliveryDate).toLocaleDateString('en-US', {
-                                          year: 'numeric',
-                                          month: 'short',
-                                          day: 'numeric'
-                                        }) : 'Not specified'}
-                                      </p>
-                                    </div>
-                                    <Link to={`/shipments/${shipment._id}`} className="text-xs text-blue-600">Details</Link>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                      </div>
-                    </>
-                  )}
-
-                  {shipments.length > 3 && (
-                    <div className="text-center mt-4">
-                      <Link to="/shipments" className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                        View all {shipments.length} shipments
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
+          
           </div>
         </div>
       </div>

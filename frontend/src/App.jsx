@@ -3,7 +3,6 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Weight from './pages/Weight';
 import Medications from './pages/Medications';
-import Shipments from './pages/Shipments';
 import Navbar from './components/common/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -26,7 +25,6 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/weight" element={<Weight />} />
               <Route path="/medications" element={<Medications />} />
-              <Route path="/shipments" element={<Shipments />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
           </Routes>

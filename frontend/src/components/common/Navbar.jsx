@@ -94,16 +94,7 @@ const Navbar = () => {
                   >
                     Medications
                   </Link>
-                  <Link
-                    to="/shipments"
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                      isActive('/shipments')
-                        ? 'text-white border-b-2 border-white'
-                        : 'text-blue-100 hover:text-white hover:border-b-2 hover:border-blue-300'
-                    }`}
-                  >
-                    Shipments
-                  </Link>
+                
                 </div>
 
                 {/* Profile dropdown */}
@@ -219,17 +210,7 @@ const Navbar = () => {
                 >
                   Medications
                 </Link>
-                <Link
-                  to="/shipments"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    isActive('/shipments')
-                      ? 'text-white border-l-4 border-white pl-2'
-                      : 'text-blue-100 hover:text-white hover:border-l-4 hover:border-blue-300 hover:pl-2'
-                  }`}
-                >
-                  Shipments
-                </Link>
+               
                 <Link
                   to="/profile"
                   onClick={() => setIsMobileMenuOpen(false)}

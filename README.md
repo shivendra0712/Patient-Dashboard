@@ -1,6 +1,6 @@
 # Patient Dashboard
 
-A comprehensive health management application for patients to track weight, medications, and shipments.
+A comprehensive health management application for patients to track weight, medications
 
 ![Patient Dashboard](https://via.placeholder.com/800x400?text=Patient+Dashboard)
 
@@ -96,13 +96,6 @@ The backend provides the following API endpoints:
 - `PUT /api/medications/:id` - Update a medication
 - `DELETE /api/medications/:id` - Delete a medication
 
-### Shipment Tracking
-
-- `GET /api/shipments` - Get all shipments
-- `POST /api/shipments` - Create a shipment
-- `GET /api/shipments/:id` - Get a specific shipment
-- `PUT /api/shipments/:id` - Update a shipment
-- `DELETE /api/shipments/:id` - Delete a shipment
 
 ## Testing the Application
 
@@ -127,11 +120,7 @@ The backend provides the following API endpoints:
 2. Use the "Add Medication" button to add new medications
 3. Update medication status as needed
 
-#### Shipments
 
-1. Navigate to the Shipments page
-2. Use the "Add Shipment" button to add new shipment records
-3. Update shipment status as needed
 
 ## Troubleshooting
 

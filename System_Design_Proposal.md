@@ -2,14 +2,13 @@
 
 ## 1. Introduction
 
-This document outlines the technical architecture for the Patient Dashboard application, a comprehensive health management system designed for patients to track their weight, medications, and shipments. The application aims to provide a user-friendly interface for patients to monitor their health metrics and medication adherence.
+This document outlines the technical architecture for the Patient Dashboard application, a comprehensive health management system designed for patients to track their weight, medications. The application aims to provide a user-friendly interface for patients to monitor their health metrics and medication adherence.
 
 ## 2. System Overview
 
 The Patient Dashboard is a full-stack web application that enables users to:
 - Track weight measurements and set weight goals
 - Manage medications and monitor adherence
-- Track medication shipments
 - Maintain a personal health profile
 
 ## 3. Technical Architecture
@@ -153,7 +152,7 @@ The application follows a client-server architecture with the following componen
 **Justification:**
 - **Standardized Methods**: REST uses standard HTTP methods (GET, POST, PUT, DELETE) that align well with CRUD operations.
 - **Statelessness**: RESTful APIs are stateless, making them easier to scale and maintain.
-- **Resource-Based**: The resource-based approach maps well to the domain entities (users, weight records, medications, shipments).
+- **Resource-Based**: The resource-based approach maps well to the domain entities (users, weight records, medications).
 - **Client-Server Separation**: Clear separation of concerns between client and server components.
 - **Cacheability**: REST's caching capabilities can improve performance for frequently accessed data.
 
@@ -185,12 +184,7 @@ The application follows a client-server architecture with the following componen
 - `PUT /api/medications/:id` - Update a medication
 - `DELETE /api/medications/:id` - Delete a medication
 
-**Shipment Tracking:**
-- `GET /api/shipments` - Get all shipments
-- `POST /api/shipments` - Create a shipment
-- `GET /api/shipments/:id` - Get a specific shipment
-- `PUT /api/shipments/:id` - Update a shipment
-- `DELETE /api/shipments/:id` - Delete a shipment
+
 
 ### 3.6 Authentication Strategy
 
