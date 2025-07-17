@@ -76,9 +76,7 @@ function Dashboard() {
         const medicationData = await getMedications();
         setMedications(medicationData || []);
 
-        // Fetch shipments
-        const shipmentData = await getShipments();
-        setShipments(shipmentData || []);
+       
 
       } catch (error) {
         console.error('Error fetching data:', error);

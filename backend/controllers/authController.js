@@ -1,6 +1,9 @@
 const User = require('../models/User');
 
 // @desc    Register user
+
+
+
 // @route   POST /api/auth/register
 // @access  Public
 exports.register = async (req, res) => {

@@ -15,6 +15,7 @@ app.use(cors(
     origin: process.env.FRONTEND_URL,
     credentials: true, 
 }));
+
 app.use(express.json());
 
 // Import routes
@@ -29,7 +30,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/weight', weightRoutes);
 app.use('/api/medications', medicationRoutes);
-app.use('/api/shipments', shipmentRoutes);
+
 
 // Connect to MongoDB
 const connectDB = async () => {
