@@ -23,7 +23,7 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const weightRoutes = require('./routes/weight');
 const medicationRoutes = require('./routes/medications');
-const shipmentRoutes = require('./routes/shipments');
+
 
 // Use routes
 app.use('/api/auth', authRoutes);
